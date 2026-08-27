@@ -49,13 +49,6 @@ button{font-family:inherit; cursor:pointer; border:none; background:none; color:
 .wrap{max-width:1360px; margin:0 auto; padding:0 6vw; position:relative; z-index:2;}
 @media(max-width:640px){.wrap{padding:0 6vw;}}
 
-/* ---------- decorative spice illustrations ---------- */
-.spice{position:absolute; color:var(--clay); opacity:0.55; pointer-events:none; z-index:1;}
-.spice.spice-cinnamon{width:110px;}
-.spice.spice-star{width:64px;}
-.spice.spice-leaf{width:46px;}
-.spice.spice-pepper{width:80px;}
-
 /* ---------- custom cursor (desktop only) ---------- */
 .cursor-dot{
   position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%;
@@ -289,14 +282,17 @@ h1.hero-title{
 .ingredients{
   position:relative; padding:min(13vw,160px) 0; overflow:hidden;
 }
-.ing-wrap{display:flex; align-items:center; justify-content:center; position:relative; min-height:600px;}
+.ing-wrap{position:relative; min-height:clamp(480px, 60vh, 680px);}
+.ing-wheel-pos{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+}
 .ing-wheel-holder{
   position:relative; width:min(52vw,480px); height:min(52vw,480px); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
+  background:#fff; box-shadow:0 40px 90px -20px rgba(0,0,0,0.5);
 }
 .ing-wheel-holder img{
-  width:100%; height:100%; object-fit:cover; border-radius:50%;
-  box-shadow:0 40px 90px -20px rgba(0,0,0,0.5);
+  width:86%; height:86%; object-fit:cover; object-position:center top; border-radius:50%;
   filter:saturate(1.05);
   border:6px solid rgba(240,166,61,0.25);
 }

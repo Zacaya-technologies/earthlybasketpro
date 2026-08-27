@@ -43,26 +43,6 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <svg class="spice spice-cinnamon" id="spice1" style="top:8%; left:1%;" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-    <path d="M6 20c0-8 6-14 14-14h60c8 0 14 6 14 14s-6 14-14 14H20C12 34 6 28 6 20Z"/>
-    <path d="M20 8c-7 4-7 20 0 24M34 6c-9 5-9 23 0 28M50 6c-9 5-9 23 0 28M66 6c-9 5-9 23 0 28M80 8c-6 4-6 20 0 24"/>
-  </svg>
-  <svg class="spice spice-star" id="spice2" style="top:66%; left:4%;" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <circle cx="50" cy="50" r="10"/>
-    <path d="M50 40 L58 15 L66 28 L50 40Z"/><path d="M60 46 L88 38 L82 52 L60 46Z"/>
-    <path d="M60 55 L82 72 L68 76 L60 55Z"/><path d="M50 60 L58 88 L42 88 L50 60Z"/>
-    <path d="M40 55 L18 72 L32 76 L40 55Z"/><path d="M40 46 L12 38 L18 52 L40 46Z"/>
-    <path d="M42 40 L34 15 L26 28 L42 40Z"/>
-  </svg>
-  <svg class="spice spice-leaf" id="spice3" style="top:10%; right:36%;" viewBox="0 0 60 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-    <path d="M30 4C48 24 52 60 30 96C8 60 12 24 30 4Z"/>
-    <path d="M30 10V90"/>
-    <path d="M30 30 20 24M30 30 40 24M30 50 18 44M30 50 42 44M30 70 20 64M30 70 40 64"/>
-  </svg>
-  <svg class="spice spice-pepper" id="spice4" style="bottom:6%; left:32%;" viewBox="0 0 100 40" fill="currentColor" stroke="none" aria-hidden="true">
-    <circle cx="14" cy="20" r="9"/><circle cx="36" cy="12" r="8"/><circle cx="54" cy="24" r="9.5"/><circle cx="74" cy="14" r="7.5"/><circle cx="88" cy="26" r="6.5"/>
-  </svg>
-
   <div class="wrap hero-grid">
     <div class="hero-visual-wrap" id="heroVisualWrap">
       <div class="hero-blob"></div>
@@ -135,8 +115,10 @@
   <div class="wrap">
     <div class="ing-wrap">
       <div class="ing-ring" id="ingRing"></div>
-      <div class="ing-wheel-holder" id="ingWheel">
-        <img data-img="wheel" alt="Wheel of natural millets, grains, nuts and traditional spices used by Earthly Basket" />
+      <div class="ing-wheel-pos">
+        <div class="ing-wheel-holder" id="ingWheel">
+          <img data-img="wheel" alt="Wheel of natural millets, grains, nuts and traditional spices used by Earthly Basket" />
+        </div>
       </div>
       <div class="ing-label ing-l1"><span class="dot"></span>Millets</div>
       <div class="ing-label ing-l2"><span class="dot"></span>Nuts</div>
@@ -172,8 +154,8 @@
         <p>Traditional cooking, adapted for a modern morning.</p>
       </div>
       <div class="benefit reveal">
-        <div class="b-num" data-count="0"><span class="val">100</span><span class="unit">%</span></div>
-        <h4>Millet Based</h4>
+        <div class="b-num" data-count="100"><span class="val">100</span><span class="unit">%</span></div>
+        <h4>100% organic millet based at 0% Millet Based</h4>
         <p>Rooted in the grain that fed generations before ours.</p>
       </div>
     </div>
@@ -402,7 +384,6 @@ if(!reduceMotion){
 gsap.set('#heroVisualWrap', {opacity:0, scale:0.92, y:20});
 gsap.set('#heroPriceBadge', {opacity:0, scale:0.4, rotate:20});
 gsap.set(['#heroScript','#heroTitleEl','#heroRating','#heroTesti','#heroCtas'], {opacity:0, y:26});
-gsap.set(['#spice1','#spice2','#spice3','#spice4'], {opacity:0, scale:0.6});
 const heroTl = gsap.timeline({defaults:{ease:'power3.out'}});
 heroTl
   .to('#heroVisualWrap', {opacity:1, scale:1, y:0, duration:1, ease:'power3.out'}, 0)
@@ -411,20 +392,11 @@ heroTl
   .to('#heroTitleEl', {opacity:1, y:0, duration:0.8}, 0.4)
   .to('#heroRating', {opacity:1, y:0, duration:0.7}, 0.6)
   .to('#heroTesti', {opacity:1, y:0, duration:0.7}, 0.75)
-  .to('#heroCtas', {opacity:1, y:0, duration:0.7}, 0.9)
-  .to(['#spice1','#spice2','#spice3','#spice4'], {opacity:0.55, scale:1, duration:1, stagger:0.15}, 0.5);
+  .to('#heroCtas', {opacity:1, y:0, duration:0.7}, 0.9);
 
 /* ---------- hero parallax on scroll ---------- */
 gsap.to('#heroVisualWrap', {
   y: isMobile? -10 : -30, ease:'none',
-  scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
-});
-gsap.to(['#spice1','#spice3'], {
-  y: -40, rotate:12, ease:'none',
-  scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
-});
-gsap.to(['#spice2','#spice4'], {
-  y: 40, rotate:-12, ease:'none',
   scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
 });
 

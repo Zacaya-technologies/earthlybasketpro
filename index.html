@@ -23,7 +23,7 @@
 <!-- NAV -->
 <nav class="nav" id="mainNav">
   <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="Earthly Basket" class="logo-img"><span class="logo-text">Earthly Basket</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="shop.html">Shop</a></li>
     <li><a href="about.html">Our Story</a></li>
@@ -37,9 +37,10 @@
     <a href="shop.html" aria-label="Cart">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     </a>
-    <div class="nav-toggle"><span></span><span></span></div>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
   </div>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -491,6 +492,31 @@ function showSlide(i){
 }
 dots.forEach(d=> d.addEventListener('click', ()=> showSlide(parseInt(d.dataset.i,10))));
 let testiTimer = setInterval(()=> showSlide((activeSlide+1)%slides.length), 5500);
+
+/* ---------- mobile nav ---------- */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+if(navToggle && navLinks && navOverlay){
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navOverlay.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  navOverlay.addEventListener('click', ()=>{
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+}
 
 ScrollTrigger.refresh();
 </script>

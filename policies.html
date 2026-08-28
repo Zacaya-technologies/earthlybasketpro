@@ -22,7 +22,7 @@
 
 <nav class="nav scrolled" id="mainNav">
   <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="Earthly Basket" class="logo-img"><span class="logo-text">Earthly Basket</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="shop.html">Shop</a></li>
     <li><a href="about.html">Our Story</a></li>
@@ -36,9 +36,10 @@
     <a href="shop.html" aria-label="Cart">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     </a>
-    <div class="nav-toggle"><span></span><span></span></div>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
   </div>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <section class="page-hero" style="min-height:34vh;">
   <div class="bg"><img data-img="story" alt="A rustic dark bowl piled with turmeric, chilli, and whole spices" /></div>
@@ -52,9 +53,9 @@
   <div class="policy-layout">
     <nav class="policy-nav">
       <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms &amp; Conditions</a>
+      <a href="#terms">Terms & Conditions</a>
       <a href="#delivery">Delivery Policy</a>
-      <a href="#returns">Return &amp; Refund Policy</a>
+      <a href="#returns">Return & Refund Policy</a>
     </nav>
     <div>
       <div class="policy-block" id="privacy">
@@ -71,7 +72,7 @@
       </div>
 
       <div class="policy-block" id="terms">
-        <h2>Terms &amp; Conditions</h2>
+        <h2>Terms & Conditions</h2>
         <p>By accessing or using this website, you agree to the following terms. If you do not agree, please do not use this site.</p>
         <ul>
           <li>All product descriptions, weights and prices are subject to change without prior notice.</li>
@@ -95,7 +96,7 @@
       </div>
 
       <div class="policy-block" id="returns">
-        <h2>Return &amp; Refund Policy</h2>
+        <h2>Return & Refund Policy</h2>
         <p>Because our products are food items, we handle returns a little differently to protect quality and hygiene.</p>
         <ul>
           <li>Unopened, unused products may be returned within 7 days of delivery for a full refund.</li>
@@ -135,7 +136,7 @@
       </div>
       <div class="foot-col">
         <h5>Legal</h5>
-        <a href="policies.html#privacy">Privacy Policy</a><a href="policies.html#terms">Terms &amp; Conditions</a><a href="policies.html#delivery">Delivery Policy</a><a href="policies.html#returns">Return &amp; Refund Policy</a>
+        <a href="policies.html#privacy">Privacy Policy</a><a href="policies.html#terms">Terms & Conditions</a><a href="policies.html#delivery">Delivery Policy</a><a href="policies.html#returns">Return & Refund Policy</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -170,6 +171,32 @@ blocks.forEach(block=>{
 function setActive(id){
   navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+id));
 }
+
+/* ---------- mobile nav ---------- */
+const navToggle = document.getElementById('navToggle');
+const navLinksEl = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+if(navToggle && navLinksEl && navOverlay){
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = navLinksEl.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navOverlay.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  navOverlay.addEventListener('click', ()=>{
+    navLinksEl.classList.remove('open');
+    navToggle.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  navLinksEl.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+    navLinksEl.classList.remove('open');
+    navToggle.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+}
+
 ScrollTrigger.refresh();
 </script>
 </body>

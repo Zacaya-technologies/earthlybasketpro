@@ -377,7 +377,7 @@ function showHeroSlide(i){
   heroPriceAmountEl.textContent = formatINR(heroSlides[i].price);
   heroSlideIndex = i;
 }
-if(!reduceMotion){
+if(!window.reduceMotion){
   setInterval(()=> showHeroSlide((heroSlideIndex+1) % heroSlides.length), 3200);
 }
 
@@ -397,7 +397,7 @@ heroTl
 
 /* ---------- hero parallax on scroll ---------- */
 gsap.to('#heroVisualWrap', {
-  y: isMobile? -10 : -30, ease:'none',
+  y: window.isMobile? -10 : -30, ease:'none',
   scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
 });
 
@@ -428,10 +428,10 @@ gsap.to('.ing-wheel-holder', {
   scrollTrigger:{trigger:'.ingredients', start:'top 60%'}
 });
 gsap.to('#ingWheel img', {
-  rotate: reduceMotion?0:360, duration:60, repeat:-1, ease:'none', transformOrigin:'50% 50%'
+  rotate: window.reduceMotion?0:360, duration:60, repeat:-1, ease:'none', transformOrigin:'50% 50%'
 });
 gsap.to('#ingRing', {
-  rotate: reduceMotion?0:-360, duration:90, repeat:-1, ease:'none', transformOrigin:'50% 50%'
+  rotate: window.reduceMotion?0:-360, duration:90, repeat:-1, ease:'none', transformOrigin:'50% 50%'
 });
 gsap.utils.toArray('.ing-label').forEach((el,i)=>{
   gsap.to(el, {

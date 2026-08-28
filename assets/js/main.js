@@ -13,8 +13,8 @@ document.querySelectorAll("[data-bg]").forEach(function(el){
   el.style.backgroundPosition = "center";
 });
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isMobile = window.matchMedia('(max-width:900px)').matches;
+window.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.isMobile = window.matchMedia('(max-width:900px)').matches;
 
 /* ---------- nav scroll state ---------- */
 const nav = document.getElementById('mainNav');

@@ -36,10 +36,25 @@
     <a href="shop.html" aria-label="Cart">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     </a>
-    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="nav-overlay" id="navOverlay"></div>
+<div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-header">
+    <a href="index.html" class="nav-logo"><img src="assets/img/logo.png" alt="Earthly Basket" class="logo-img"><span class="logo-text">Earthly Basket</span></a>
+    <button class="mobile-drawer-close" id="mobileDrawerClose" type="button" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4 4 20"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">Our Story</a>
+    <a href="journal.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</aside>
 
 <section class="page-hero" style="min-height:34vh;">
   <div class="bg"><img data-img="premium-cashews" alt="A rustic dark bowl piled with turmeric, chilli, and whole spices" /></div>
@@ -172,29 +187,37 @@ function setActive(id){
   navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+id));
 }
 
-/* ---------- mobile nav ---------- */
+/* ---------- mobile nav drawer ---------- */
 const navToggle = document.getElementById('navToggle');
-const navLinksEl = document.getElementById('navLinks');
-const navOverlay = document.getElementById('navOverlay');
-if(navToggle && navLinksEl && navOverlay){
+const mobileDrawer = document.getElementById('mobileDrawer');
+const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
+const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+if(navToggle && mobileDrawer && mobileDrawerBackdrop){
+  function openDrawer(){
+    mobileDrawer.classList.add('open');
+    mobileDrawerBackdrop.classList.add('open');
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    mobileDrawer.classList.remove('open');
+    mobileDrawerBackdrop.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
   navToggle.addEventListener('click', ()=>{
-    const isOpen = navLinksEl.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-    navOverlay.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer();
   });
-  navOverlay.addEventListener('click', ()=>{
-    navLinksEl.classList.remove('open');
-    navToggle.classList.remove('open');
-    navOverlay.classList.remove('open');
-    document.body.style.overflow = '';
+  mobileDrawerBackdrop.addEventListener('click', closeDrawer);
+  if(mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeDrawer);
+  mobileDrawer.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && mobileDrawer.classList.contains('open')) closeDrawer();
   });
-  navLinksEl.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
-    navLinksEl.classList.remove('open');
-    navToggle.classList.remove('open');
-    navOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
 }
 
 ScrollTrigger.refresh();

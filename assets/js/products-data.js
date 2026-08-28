@@ -173,3 +173,11 @@ function getProductBySlug(slug){
 function resolveProductImage(p){
   return p.img;
 }
+
+/* Resolve a decorative/journal image key: a real file path (contains "/")
+   is used as-is; a bare key is looked up as a product slug. */
+function resolveImageKey(key){
+  if(key.indexOf('/') !== -1) return key;
+  const p = getProductBySlug(key);
+  return p ? resolveProductImage(p) : '';
+}

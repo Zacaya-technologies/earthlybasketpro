@@ -4,16 +4,16 @@
    ========================================================== */
 gsap.registerPlugin(ScrollTrigger);
 
-/* All decorative imagery site-wide is drawn from the 13 real product
-   photos — data-img/data-bg values are product slugs. */
+/* Decorative imagery site-wide: data-img/data-bg values are either a
+   product slug or a real file path, resolved via resolveImageKey(). */
 document.querySelectorAll("img[data-img]").forEach(function(el){
-  const p = getProductBySlug(el.dataset.img);
-  if(p) el.src = resolveProductImage(p);
+  const src = resolveImageKey(el.dataset.img);
+  if(src) el.src = src;
 });
 document.querySelectorAll("[data-bg]").forEach(function(el){
-  const p = getProductBySlug(el.dataset.bg);
-  if(p){
-    el.style.backgroundImage = "url(" + resolveProductImage(p) + ")";
+  const src = resolveImageKey(el.dataset.bg);
+  if(src){
+    el.style.backgroundImage = "url(" + src + ")";
     el.style.backgroundSize = "cover";
     el.style.backgroundPosition = "center";
   }

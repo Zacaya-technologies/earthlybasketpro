@@ -167,9 +167,9 @@ function renderGrid(){
     </a>
   `).join('');
   gridEl.querySelectorAll('[data-bg]').forEach(function(el){
-    const p = getProductBySlug(el.dataset.bg);
-    if(p){
-      el.style.backgroundImage = "url(" + resolveProductImage(p) + ")";
+    const src = resolveImageKey(el.dataset.bg);
+    if(src){
+      el.style.backgroundImage = "url(" + src + ")";
       el.style.backgroundSize = "cover";
       el.style.backgroundPosition = "center";
     }

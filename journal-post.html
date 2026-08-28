@@ -157,7 +157,7 @@ document.getElementById('postTitle').textContent = article.title;
 document.getElementById('postAuthor').textContent = article.author;
 document.getElementById('postDate').textContent = formatArticleDate(article.date);
 document.getElementById('postReadTime').textContent = article.readTime;
-document.getElementById('postImg').src = resolveProductImage(getProductBySlug(article.img));
+document.getElementById('postImg').src = resolveImageKey(article.img);
 document.getElementById('postImg').alt = article.title;
 
 document.getElementById('postBody').innerHTML = article.body.map(b=>{
@@ -187,9 +187,9 @@ document.getElementById('relatedGrid').innerHTML = related.map(a => `
   </a>
 `).join('');
 document.querySelectorAll('#relatedGrid [data-bg]').forEach(function(el){
-  const p = getProductBySlug(el.dataset.bg);
-  if(p){
-    el.style.backgroundImage = "url(" + resolveProductImage(p) + ")";
+  const src = resolveImageKey(el.dataset.bg);
+  if(src){
+    el.style.backgroundImage = "url(" + src + ")";
     el.style.backgroundSize = "cover";
     el.style.backgroundPosition = "center";
   }

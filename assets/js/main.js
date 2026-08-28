@@ -1,16 +1,22 @@
 /* ==========================================================
    Earthly Basket — shared site behaviour
-   Loaded on every page after gsap, ScrollTrigger, site-images.js
+   Loaded on every page after gsap, ScrollTrigger, products-data.js
    ========================================================== */
 gsap.registerPlugin(ScrollTrigger);
 
+/* All decorative imagery site-wide is drawn from the 13 real product
+   photos — data-img/data-bg values are product slugs. */
 document.querySelectorAll("img[data-img]").forEach(function(el){
-  el.src = SITE_IMAGES[el.dataset.img];
+  const p = getProductBySlug(el.dataset.img);
+  if(p) el.src = resolveProductImage(p);
 });
 document.querySelectorAll("[data-bg]").forEach(function(el){
-  el.style.backgroundImage = "url(" + SITE_IMAGES[el.dataset.bg] + ")";
-  el.style.backgroundSize = "cover";
-  el.style.backgroundPosition = "center";
+  const p = getProductBySlug(el.dataset.bg);
+  if(p){
+    el.style.backgroundImage = "url(" + resolveProductImage(p) + ")";
+    el.style.backgroundSize = "cover";
+    el.style.backgroundPosition = "center";
+  }
 });
 
 window.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,16 +54,6 @@ gsap.utils.toArray('.reveal').forEach(el=>{
     scrollTrigger:{trigger:el, start:'top 85%'}
   });
 });
-
-/* ---------- mobile nav toggle ---------- */
-const navToggle = document.querySelector('.nav-toggle');
-if(navToggle){
-  navToggle.addEventListener('click', ()=>{
-    const links = document.querySelector('.nav-links');
-    const open = links.style.display === 'flex';
-    links.style.cssText = open ? '' : 'display:flex; position:fixed; inset:0; flex-direction:column; align-items:center; justify-content:center; background:rgba(20,31,25,0.98); gap:32px; font-size:20px; z-index:1200;';
-  });
-}
 
 /* ---------- mark active nav link ---------- */
 (function(){

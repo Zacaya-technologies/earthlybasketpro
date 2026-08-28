@@ -5,197 +5,160 @@
    ========================================================== */
 const PRODUCTS = [
   {
-    slug: "millet-mix",
-    name: "Millet Mix",
-    cat: "Breakfast Mix",
-    desc: "A whole-grain millet blend for a wholesome start to the day.",
-    long: "Our signature Millet Mix combines five traditional millets — foxtail, little, kodo, barnyard and finger millet — roasted and stone-ground the way it's been done for generations. High in fibre and naturally gluten-free, it turns into a warm, filling porridge or dosa batter in minutes, no soaking required.",
-    weight: "500g",
-    price: 249,
-    mrp: 279,
-    img: "p1",
-    tags: ["millet","breakfast","gluten-free"]
+    slug: "badam-almonds",
+    name: "Badam",
+    cat: "Nuts & Dry Fruits",
+    desc: "Premium farm-fresh almonds, rich in protein and naturally sweet.",
+    long: "Whole California-grade almonds, sun-dried and hand-sorted for size and crunch. Rich in protein, fibre and vitamin E, they're as good soaked overnight as they are eaten straight from the pack — no preservatives, no additives, just the nut itself.",
+    weight: "250g",
+    price: 399,
+    mrp: 449,
+    img: "assets/img/products/badam-almonds/main.png",
+    tags: ["nuts","protein","snack"]
   },
   {
-    slug: "malt-powder",
-    name: "Malt Powder",
-    cat: "Nutrition",
-    desc: "Traditional roasted malt, ready to mix with warm milk.",
-    long: "A slow-roasted blend of ragi, wheat and a touch of jaggery, ground fine for a smooth, comforting drink. Just two spoons in warm milk gives you calcium, iron and steady energy — the same recipe households have trusted for decades, without any added preservatives.",
+    slug: "farmhouse-blend-mixed-nuts",
+    name: "Farmhouse Blend Mixed Nuts",
+    cat: "Nuts & Dry Fruits",
+    desc: "A sustainably sourced mix of almonds, cashews, walnuts and pistachios.",
+    long: "Our farmhouse blend brings together almonds, cashews, walnuts and pistachios in one resealable pack — sourced sustainably and left naturally wholesome, with nothing roasted, salted or added. A generous everyday mix for snacking, gifting, or topping your morning bowl.",
     weight: "400g",
-    price: 299,
-    mrp: 329,
-    img: "p2",
-    tags: ["nutrition","kids","calcium"]
+    price: 599,
+    mrp: 649,
+    img: "assets/img/products/farmhouse-blend-mixed-nuts/main.png",
+    tags: ["nuts","mix","gift"]
   },
   {
-    slug: "pongal-mix",
-    name: "Pongal Mix",
-    cat: "Traditional Meal",
-    desc: "Classic pongal, ready in minutes without losing the flavour.",
-    long: "Rice, moong dal, cracked pepper, cumin and curry leaves — pre-measured and lightly roasted so all that's left is a single pot and ten minutes. Tastes like it simmered all morning, without the soaking or the grinding.",
-    weight: "250g",
-    price: 179,
-    mrp: 199,
-    img: "p3",
-    tags: ["traditional","lunch","south-indian"]
-  },
-  {
-    slug: "kesaribath-mix",
-    name: "Kesaribath Mix",
-    cat: "Traditional Meal",
-    desc: "A festive semolina classic, simplified for any morning.",
-    long: "Roasted semolina, cardamom, saffron strands and cashew pieces bundled together for the classic Karnataka favourite. Add water, ghee and sugar to taste — ready in under eight minutes, festival-ready any day of the week.",
-    weight: "250g",
-    price: 189,
-    mrp: 209,
-    img: "p4",
-    tags: ["traditional","dessert","festive"]
-  },
-  {
-    slug: "upma-mix",
-    name: "Upma Mix",
-    cat: "Breakfast Mix",
-    desc: "Savoury, quick, and true to the original recipe.",
-    long: "Coarse semolina roasted with mustard seed, curry leaf, chana dal and dried vegetables. A splash of hot water and a few minutes on the stove brings back the upma your grandmother made — minus the chopping and tempering.",
-    weight: "250g",
-    price: 169,
-    mrp: 189,
-    img: "p5",
-    tags: ["breakfast","savoury","quick"]
-  },
-  {
-    slug: "bisibele-bath-mix",
-    name: "Bisibele Bath Mix",
-    cat: "Traditional Meal",
-    desc: "A rich, spiced rice-and-lentil favourite from Karnataka.",
-    long: "A house-ground bisibelebath masala with rice, toor dal, tamarind and a deep roast of coriander, chana dal and dry red chillies. Simmer with your favourite vegetables for a one-pot meal that tastes like it took all afternoon.",
-    weight: "250g",
-    price: 199,
-    mrp: 219,
-    img: "p6",
-    tags: ["traditional","lunch","karnataka"]
-  },
-  {
-    slug: "veg-bath-mix",
-    name: "Veg Bath Mix",
-    cat: "Traditional Meal",
-    desc: "Vegetable rice, prepared the traditional way, minus the wait.",
-    long: "A fragrant blend of whole spices, curry leaf and coconut, calibrated for cooked rice and whatever vegetables you have on hand. Toss together in one pan for a lunchbox-ready meal in under fifteen minutes.",
-    weight: "250g",
-    price: 189,
-    mrp: 209,
-    img: "p7",
-    tags: ["traditional","lunch","quick"]
-  },
-  {
-    slug: "nuts-millet-blend",
-    name: "Nuts & Millet Blend",
-    cat: "Everyday Nutrition",
-    desc: "Organic nuts and millets for a naturally energising snack.",
-    long: "Roasted almonds, cashews and puffed millets tossed with a whisper of jaggery — no refined sugar, no palm oil. A pocket-sized snack that holds up through a long workday or a school bag, straight out of the pack.",
-    weight: "200g",
-    price: 349,
-    mrp: 399,
-    img: "assets/img/products/nuts-millet-blend/main.jpg",
-    gallery: [
-      "assets/img/products/nuts-millet-blend/main.jpg",
-      "assets/img/products/nuts-millet-blend/bowl-mix.jpg",
-      "assets/img/products/nuts-millet-blend/platter.jpg",
-      "assets/img/products/nuts-millet-blend/flying-mix.jpg"
-    ],
-    tags: ["snack","nuts","energy"]
-  },
-  {
-    slug: "premium-mixed-nuts",
-    name: "Premium Mixed Nuts",
-    cat: "Everyday Nutrition",
-    desc: "A hand-sorted mix of almonds, cashews, walnuts, pecans, hazelnuts and pistachios.",
-    long: "Six nuts, roasted separately to their own perfect point and then blended — almonds for crunch, cashews for creaminess, walnuts and pecans for depth, hazelnuts and pistachios for character. No added oil, no added salt, just the nuts themselves.",
-    weight: "250g",
+    slug: "cardamom",
+    name: "Cardamom",
+    cat: "Seeds & Spices",
+    desc: "Premium green cardamom pods and powder, farm-fresh and aromatic.",
+    long: "Hand-picked green cardamom pods, sun-dried to lock in their natural oils and fragrance. Available whole for tempering and slow-cooked dishes, or finely ground for chai, desserts and baking — the same warm, floral aroma either way.",
+    weight: "100g",
     price: 449,
     mrp: 499,
-    img: "assets/img/products/premium-mixed-nuts/main.jpg",
-    gallery: [
-      "assets/img/products/premium-mixed-nuts/main.jpg",
-      "assets/img/products/premium-mixed-nuts/close-up.jpg",
-      "assets/img/products/premium-mixed-nuts/wide.jpg",
-      "assets/img/products/premium-mixed-nuts/bowl.jpg"
-    ],
-    tags: ["snack","nuts","gift"]
+    img: "assets/img/products/cardamom/main.png",
+    tags: ["spice","aromatic","cooking"]
   },
   {
-    slug: "roasted-almonds",
-    name: "Roasted Almonds",
-    cat: "Everyday Nutrition",
-    desc: "Whole California almonds, dry-roasted for a deep, nutty crunch.",
-    long: "Sourced whole and dry-roasted in small batches — no oil, no added salt. A steady source of protein, fibre and vitamin E that holds up in a desk drawer or a lunchbox for weeks without going soft.",
+    slug: "jackfruit-seeds",
+    name: "Farm-Fresh Jackfruit Seeds",
+    cat: "Seeds & Spices",
+    desc: "Nutrient-rich, naturally grown jackfruit seeds.",
+    long: "Cleaned and sun-dried jackfruit seeds, a traditional favourite roasted, boiled or ground into flour. A good source of protein, fibre and resistant starch, with the same earthy, nutty flavour village kitchens have used for generations.",
     weight: "250g",
-    price: 379,
-    mrp: 429,
-    img: "assets/img/products/roasted-almonds/main.jpg",
-    gallery: [
-      "assets/img/products/roasted-almonds/main.jpg",
-      "assets/img/products/roasted-almonds/tray.jpg"
-    ],
-    tags: ["snack","nuts","protein"]
+    price: 199,
+    mrp: 229,
+    img: "assets/img/products/jackfruit-seeds/main.png",
+    tags: ["seeds","protein","traditional"]
   },
   {
-    slug: "roasted-pistachios",
-    name: "Roasted Pistachios",
-    cat: "Everyday Nutrition",
-    desc: "In-shell pistachios, lightly roasted and salted the traditional way.",
-    long: "Slow-roasted in small batches with a light hand of salt, so the pistachio's own flavour still leads. High in protein and healthy fats, and satisfying enough that a small handful goes a long way.",
+    slug: "premium-peanuts",
+    name: "Premium Quality Peanuts",
+    cat: "Nuts & Dry Fruits",
+    desc: "Farm-fresh, natural peanuts with no added preservatives.",
+    long: "In-shell peanuts harvested and dried the traditional way, with nothing added and nothing taken away. A budget-friendly, protein-packed everyday snack that roasts, boils or blends into peanut butter equally well.",
+    weight: "500g",
+    price: 149,
+    mrp: 179,
+    img: "assets/img/products/premium-peanuts/main.png",
+    tags: ["nuts","protein","everyday"]
+  },
+  {
+    slug: "pistachios",
+    name: "Pistachios (Pistha)",
+    cat: "Nuts & Dry Fruits",
+    desc: "All-natural, farm-fresh pistachios with no preservatives.",
+    long: "In-shell pistachios, naturally dried to bring out their signature green colour and rich, buttery flavour. High in protein and healthy fats, they're satisfying by the handful and equally at home in a festive mithai.",
+    weight: "250g",
+    price: 649,
+    mrp: 699,
+    img: "assets/img/products/pistachios/main.png",
+    tags: ["nuts","protein","snack"]
+  },
+  {
+    slug: "pomegranate-seeds",
+    name: "Pomegranate Seeds",
+    cat: "Seeds & Spices",
+    desc: "Premium farm-fresh pomegranate seeds, pure goodness straight from the farm.",
+    long: "Whole pomegranate arils, sun-dried to concentrate their tangy-sweet flavour without any added sugar or colour. Known as anardana, they're a staple souring agent in North Indian cooking and a bright finishing touch for salads and chaats.",
     weight: "200g",
-    price: 499,
-    mrp: 559,
-    img: "assets/img/products/roasted-pistachios/main.jpg",
-    gallery: [
-      "assets/img/products/roasted-pistachios/main.jpg",
-      "assets/img/products/roasted-pistachios/bowl.jpg"
-    ],
-    tags: ["snack","nuts","protein"]
+    price: 279,
+    mrp: 319,
+    img: "assets/img/products/pomegranate-seeds/main.png",
+    tags: ["seeds","tangy","cooking"]
   },
   {
-    slug: "dried-apricots",
-    name: "Dried Apricots",
-    cat: "Everyday Nutrition",
-    desc: "Sun-dried apricots, naturally sweet with no added sugar.",
-    long: "Whole apricots, pitted and sun-dried until they turn soft and deeply sweet — no sulphur bleaching, no added sugar. A good source of iron and fibre, and an easy swap for a sugary snack mid-afternoon.",
+    slug: "pumpkin-seeds",
+    name: "Premium Pumpkin Seeds",
+    cat: "Seeds & Spices",
+    desc: "Nutrient-rich, wholesome pumpkin seeds, farm-fresh and hulled.",
+    long: "Hulled, sun-dried pumpkin seeds packed with magnesium, zinc and plant protein. Toss them raw into a salad or porridge, or dry-roast them at home for a light, crunchy snack that keeps well for weeks.",
     weight: "200g",
-    price: 329,
-    mrp: 369,
-    img: "assets/img/products/dried-apricots/main.jpg",
-    tags: ["snack","dried-fruit","iron"]
+    price: 269,
+    mrp: 299,
+    img: "assets/img/products/pumpkin-seeds/main.png",
+    tags: ["seeds","protein","snack"]
   },
   {
-    slug: "roasted-pumpkin-seeds",
-    name: "Roasted Pumpkin Seeds",
-    cat: "Everyday Nutrition",
-    desc: "Hulled pumpkin seeds, lightly roasted for a light, crunchy snack.",
-    long: "Hulled and lightly roasted with nothing added, pumpkin seeds bring magnesium, zinc and plant protein in a snack light enough to eat by the handful — good on their own, or scattered over a millet porridge.",
-    weight: "150g",
+    slug: "sliced-coconut",
+    name: "Premium Sliced Coconut",
+    cat: "Nuts & Dry Fruits",
+    desc: "Farm-fresh, naturally dried sliced coconut.",
+    long: "Fresh coconut, sliced thin and naturally dried to a light, chewy bite with no added sugar or sulphites. A quick snack on its own, and an easy way to bring real coconut flavour into desserts, trail mixes and granola.",
+    weight: "200g",
+    price: 189,
+    mrp: 219,
+    img: "assets/img/products/sliced-coconut/main.png",
+    tags: ["snack","natural","dried"]
+  },
+  {
+    slug: "soy-nuts",
+    name: "Soy Nuts",
+    cat: "Seeds & Spices",
+    desc: "Roasted and lightly salted soy nuts, all natural.",
+    long: "Whole soybeans, soaked and roasted until golden and crunchy, finished with a light hand of salt. A high-protein, low-oil snack that holds its crunch for weeks — a simple swap for fried snacks on a busy afternoon.",
+    weight: "250g",
+    price: 199,
+    mrp: 229,
+    img: "assets/img/products/soy-nuts/main.png",
+    tags: ["snack","protein","roasted"]
+  },
+  {
+    slug: "walnuts",
+    name: "Walnuts",
+    cat: "Nuts & Dry Fruits",
+    desc: "Premium quality, naturally grown walnuts.",
+    long: "Whole, naturally grown walnuts cracked to order to protect their delicate oils and flavour. Rich in omega-3s and a favourite for baking, salads or simply eating by the handful for a steady, brain-friendly snack.",
+    weight: "250g",
+    price: 549,
+    mrp: 599,
+    img: "assets/img/products/walnuts/main.png",
+    tags: ["nuts","omega-3","snack"]
+  },
+  {
+    slug: "watermelon-seeds",
+    name: "Premium Watermelon Seeds",
+    cat: "Seeds & Spices",
+    desc: "Nutrient-dense superfood, farm-fresh and wholesome.",
+    long: "Hulled watermelon seeds, naturally dried and packed with magnesium, iron and plant protein. A light, crunchy superfood snack that's equally good scattered over a salad or eaten straight from the bowl.",
+    weight: "200g",
     price: 249,
     mrp: 279,
-    img: "assets/img/products/roasted-pumpkin-seeds/main.jpg",
-    tags: ["snack","seeds","protein"]
+    img: "assets/img/products/watermelon-seeds/main.png",
+    tags: ["seeds","superfood","protein"]
   },
   {
-    slug: "dry-fruit-gift-tray",
-    name: "Dry Fruit Gift Tray",
-    cat: "Everyday Nutrition",
-    desc: "A generous assortment of nuts and dried fruit, ready to gift.",
-    long: "Our most generous offering — almonds, cashews, walnuts, pistachios and dried fruit arranged in a reusable wooden tray. Sized for festivals, housewarmings, or anyone who deserves a proper gift, not just a card.",
-    weight: "500g",
-    price: 899,
-    mrp: 999,
-    img: "assets/img/products/dry-fruit-gift-tray/main.jpg",
-    gallery: [
-      "assets/img/products/dry-fruit-gift-tray/main.jpg",
-      "assets/img/products/dry-fruit-gift-tray/platter.jpg",
-      "assets/img/products/dry-fruit-gift-tray/wide.jpg"
-    ],
-    tags: ["gift","nuts","combo"]
+    slug: "premium-cashews",
+    name: "Premium Cashews",
+    cat: "Nuts & Dry Fruits",
+    desc: "Farm-fresh, wholesome cashews — natural and unprocessed.",
+    long: "Whole, unprocessed cashews sourced straight from the farm and left untouched by oil or salt. Creamy and mildly sweet, they're a favourite for snacking, grinding into gravies, or blending into a dairy-free cashew milk.",
+    weight: "250g",
+    price: 549,
+    mrp: 599,
+    img: "assets/img/products/premium-cashews/main.png",
+    tags: ["nuts","protein","gift"]
   }
 ];
 
@@ -207,9 +170,6 @@ function getProductBySlug(slug){
   return PRODUCTS.find(p => p.slug === slug);
 }
 
-/* Resolve a product thumbnail: a real file path (contains "/") is used
-   as-is; a bare key (e.g. "p1") is looked up in the shared SITE_IMAGES
-   base64 dictionary. */
 function resolveProductImage(p){
-  return p.img.indexOf('/') !== -1 ? p.img : SITE_IMAGES[p.img];
+  return p.img;
 }

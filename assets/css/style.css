@@ -347,7 +347,7 @@ h1.hero-title{
 }
 .p-card:hover .p-media img{transform:scale(1.06);}
 .p-card .price-badge.small{position:absolute;}
-.p-script{font-family:var(--script); font-size:20px; color:var(--clay); line-height:1; margin-bottom:-2px;}
+.p-script{font-family:'Playfair Display', serif; font-weight:700; font-size:14px; color:var(--ink); line-height:1; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.03em;}
 .p-card h3{font-family:var(--serif); font-size:21px; font-weight:800; margin-bottom:6px; color:var(--ink);}
 .p-card .p-cat{font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); margin-bottom:6px;}
 .p-card p{font-size:13px; color:var(--millet); opacity:0.85; margin-bottom:16px; flex:1;}
@@ -618,7 +618,7 @@ footer{background:var(--rice-dim); color:var(--ink); padding:80px 0 30px;}
 .page-hero .bg{position:absolute; top:8%; right:2%; bottom:8%; left:58%; border-radius:62% 38% 55% 45% / 45% 55% 45% 55%; overflow:hidden;}
 .page-hero .bg img{width:100%; height:100%; object-fit:cover; opacity:0.95; filter:saturate(1.1) contrast(1.02);}
 .page-hero .bg img.fit-contain{object-fit:contain;}
-.page-hero .bg img.zoom-journal{transform:scale(1.6); transform-origin:center 65%;}
+.page-hero .bg img.zoom-journal{transform:scale(1.15); transform-origin:center 55%;}
 .page-hero .bg::after{content:'';}
 .page-hero-content{position:relative; z-index:2; width:100%; padding:0 clamp(16px, 5vw, 80px) 56px; max-width:640px;}
 .breadcrumb{
